@@ -1,0 +1,285 @@
+.book-reader {
+  --reader-bg: #ffffff;
+  --reader-soft: #f6f8ff;
+  --reader-border: #dbe2ff;
+  --reader-primary: #3849d6;
+  --reader-text: #1f2a44;
+  background: var(--reader-bg);
+  border: 1px solid var(--reader-border);
+  border-radius: 20px;
+  padding: 1.5rem;
+  box-shadow: 0 12px 30px rgba(22, 32, 72, 0.12);
+}
+
+.book-reader.calm-mode {
+  --reader-bg: #fbfdf7;
+  --reader-soft: #eef5e8;
+  --reader-border: #d9e7cc;
+  --reader-primary: #3e7a3c;
+  --reader-text: #213b20;
+}
+
+.book-reader-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.book-reader-header h2 {
+  margin: 0 0 0.5rem;
+  color: var(--reader-text);
+}
+
+.book-reader-header p {
+  margin: 0;
+  color: #5f6b88;
+}
+
+.calm-toggle {
+  border: 1px solid var(--reader-border);
+  background: var(--reader-soft);
+  color: var(--reader-primary);
+  border-radius: 10px;
+  padding: 0.65rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.book-checkin,
+.post-reading-checkin {
+  background: var(--reader-soft);
+  border: 1px solid var(--reader-border);
+  border-radius: 14px;
+  padding: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.book-checkin span,
+.post-reading-checkin span {
+  display: block;
+  color: var(--reader-text);
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+}
+
+.checkin-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.checkin-btn {
+  border: 1px solid var(--reader-border);
+  background: white;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  color: #425173;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.checkin-btn.active {
+  border-color: var(--reader-primary);
+  color: white;
+  background: var(--reader-primary);
+}
+
+.book-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.filter-chip {
+  border: 1px solid #d8def7;
+  border-radius: 999px;
+  background: #f4f6ff;
+  color: #425173;
+  padding: 0.45rem 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.filter-chip.active {
+  background: var(--reader-primary);
+  color: white;
+  border-color: var(--reader-primary);
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.book-item {
+  border: 2px solid #dfe5fb;
+  background: #f8faff;
+  border-radius: 12px;
+  padding: 0.75rem;
+  cursor: pointer;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: all 0.2s ease;
+}
+
+.book-item.active {
+  border-color: var(--reader-primary);
+  background: white;
+  box-shadow: 0 8px 20px rgba(56, 73, 214, 0.15);
+}
+
+.book-item:hover {
+  border-color: var(--reader-primary);
+}
+
+.book-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.book-title {
+  font-weight: 700;
+  color: var(--reader-text);
+}
+
+.book-level {
+  font-size: 0.9rem;
+  color: #5f6b88;
+}
+
+.book-meta {
+  font-size: 0.82rem;
+  color: #7a86a8;
+}
+
+.recommended-pill {
+  background: #e0e7ff;
+  color: #3440ab;
+  border-radius: 999px;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.empty-filter-state {
+  border: 1px dashed #cfd7f7;
+  border-radius: 12px;
+  padding: 0.9rem;
+  background: #f8faff;
+  color: #5b688a;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.book-content {
+  border: 2px solid #dfe5fb;
+  border-radius: 12px;
+  padding: 1.25rem;
+  background: #ffffff;
+}
+
+.book-content h3 {
+  margin-top: 0;
+  color: var(--reader-text);
+}
+
+.book-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.book-tag {
+  border: 1px solid #d9e1ff;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+  color: #425173;
+  background: #f4f7ff;
+}
+
+.book-page-text {
+  color: #2f3d5f;
+  line-height: 1.9;
+  min-height: 120px;
+  font-size: 1.05rem;
+}
+
+.book-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.book-pagination button {
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  cursor: pointer;
+  background: var(--reader-primary);
+  color: white;
+  font-weight: 600;
+}
+
+.book-pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.book-pagination span {
+  color: #4b5a7b;
+  font-weight: 600;
+}
+
+.session-impact {
+  margin-top: 0.75rem;
+  border-radius: 10px;
+  padding: 0.65rem 0.8rem;
+  font-weight: 700;
+}
+
+.session-impact.positive {
+  background: #e7f9ec;
+  color: #1a7f3f;
+}
+
+.session-impact.neutral {
+  background: #edf2ff;
+  color: #3550b8;
+}
+
+.session-impact.negative {
+  background: #fff1df;
+  color: #9a5b0d;
+}
+
+@media (max-width: 640px) {
+  .book-reader {
+    padding: 1rem;
+  }
+
+  .book-reader-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .book-pagination {
+    flex-direction: column;
+  }
+
+  .book-pagination button {
+    width: 100%;
+  }
+}

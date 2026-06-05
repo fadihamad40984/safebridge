@@ -1,0 +1,318 @@
+.mood-advice-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.mood-advice-header {
+  text-align: center;
+  background: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid;
+  animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mood-advice-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.mood-advice-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.mood-advice-header p {
+  font-size: 1.1rem;
+  color: #6b7280;
+  line-height: 1.6;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Activities Section */
+.activities-section {
+  margin-bottom: 2rem;
+}
+
+.activities-section h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.activity-card {
+  background: white;
+  padding: 1.75rem 1.25rem;
+  border-radius: 15px;
+  border: 3px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.activity-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.activity-card:hover .activity-icon {
+  transform: scale(1.2);
+}
+
+.activity-card h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.activity-card p {
+  font-size: 0.95rem;
+  color: #6b7280;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Tips Section */
+.tips-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tips-section h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+.tips-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tips-section li {
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.75rem;
+  background: white;
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  position: relative;
+  padding-right: 3rem;
+  border: 2px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.tips-section li:hover {
+  transform: translateX(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.tips-section li::before {
+  content: '✓';
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Encouragement Box */
+.encouragement-box {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.75rem;
+  border-radius: 15px;
+  text-align: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+}
+
+.encouragement-icon {
+  font-size: 2.5rem;
+}
+
+.encouragement-box p {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mood-advice-container {
+    padding: 1rem;
+  }
+
+  .mood-advice-header {
+    padding: 2rem 1.5rem;
+  }
+
+  .mood-advice-emoji {
+    font-size: 3rem;
+  }
+
+  .mood-advice-header h2 {
+    font-size: 1.6rem;
+  }
+
+  .mood-advice-header p {
+    font-size: 1rem;
+  }
+
+  .activities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .activity-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .activity-icon {
+    font-size: 2.5rem;
+  }
+
+  .activity-card h4 {
+    font-size: 1rem;
+  }
+
+  .tips-section {
+    padding: 1.5rem;
+  }
+
+  .tips-section li {
+    font-size: 0.95rem;
+    padding: 0.875rem 1.25rem;
+    padding-right: 2.75rem;
+  }
+
+  .encouragement-box {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .encouragement-icon {
+    font-size: 2rem;
+  }
+
+  .encouragement-box p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mood-advice-header h2 {
+    font-size: 1.4rem;
+  }
+}
+
+/* Loading Animation */
+.activity-card:nth-child(1) { animation-delay: 0.1s; }
+.activity-card:nth-child(2) { animation-delay: 0.2s; }
+.activity-card:nth-child(3) { animation-delay: 0.3s; }
+.activity-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .mood-advice-emoji,
+  .activity-card,
+  .activity-icon,
+  .encouragement-box {
+    animation: none;
+  }
+
+  .activity-card:hover,
+  .tips-section li:hover {
+    transform: none;
+  }
+}

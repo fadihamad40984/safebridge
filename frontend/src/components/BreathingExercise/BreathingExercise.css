@@ -1,0 +1,424 @@
+.breathing-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.breathing-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 30px;
+  padding: 3rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  position: relative;
+  color: white;
+  animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.breathing-close {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.breathing-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(90deg);
+}
+
+.breathing-close svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Ready State */
+.breathing-ready {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.breathing-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.breathing-ready h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.breathing-ready p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.breathing-info {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.75rem 1.5rem;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.breathing-start-btn {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.breathing-start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.breathing-start-btn svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Active State */
+.breathing-active {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.breathing-progress {
+  margin-bottom: 2rem;
+}
+
+.cycle-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.breathing-circle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  margin: 2rem 0;
+}
+
+.breathing-circle {
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 60px rgba(255, 255, 255, 0.4),
+              inset 0 0 40px rgba(255, 255, 255, 0.2);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 60px rgba(255, 255, 255, 0.4),
+                inset 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 100px rgba(255, 255, 255, 0.6),
+                inset 0 0 60px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.breathing-count {
+  font-size: 4rem;
+  font-weight: 700;
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.breathing-instruction {
+  margin: 2rem 0;
+}
+
+.breathing-phase-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.breathing-instruction h3 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.breathing-stop-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.breathing-stop-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Complete State */
+.breathing-complete {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.breathing-success-icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+  animation: celebrate 1s ease-in-out;
+}
+
+@keyframes celebrate {
+  0% {
+    transform: scale(0) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.breathing-complete h2 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.breathing-complete p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.breathing-complete-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.breathing-restart-btn {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 0.875rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.breathing-restart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.breathing-restart-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.breathing-done-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  padding: 0.875rem 2rem;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.breathing-done-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Tips */
+.breathing-tips {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  text-align: right;
+}
+
+.breathing-tips h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.breathing-tips ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.breathing-tips li {
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+  position: relative;
+  padding-right: 1.5rem;
+}
+
+.breathing-tips li::before {
+  content: '•';
+  position: absolute;
+  right: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .breathing-container {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+  }
+
+  .breathing-icon,
+  .breathing-success-icon {
+    font-size: 3.5rem;
+  }
+
+  .breathing-ready h2,
+  .breathing-complete h2 {
+    font-size: 1.75rem;
+  }
+
+  .breathing-circle {
+    max-width: 250px;
+    max-height: 250px;
+  }
+
+  .breathing-count {
+    font-size: 3rem;
+  }
+
+  .breathing-instruction h3 {
+    font-size: 1.5rem;
+  }
+
+  .breathing-complete-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .breathing-restart-btn,
+  .breathing-done-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .breathing-circle,
+  .breathing-icon,
+  .breathing-phase-icon,
+  .breathing-success-icon {
+    animation: none;
+    transition: none;
+  }
+
+  .breathing-overlay,
+  .breathing-container {
+    animation: none;
+  }
+}

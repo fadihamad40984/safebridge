@@ -1,0 +1,49 @@
+.mood-chart {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.chart-title {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.custom-tooltip {
+  background: white;
+  padding: 1rem;
+  border: 2px solid #667eea;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tooltip-date {
+  font-weight: bold;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-mood {
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.tooltip-note {
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .mood-chart {
+    padding: 1rem;
+  }
+
+  .chart-title {
+    font-size: 1.2rem;
+  }
+}

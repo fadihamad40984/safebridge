@@ -1,0 +1,311 @@
+.child-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.dashboard-title {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.dashboard-subtitle {
+  color: #6b7280;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* Quick Actions */
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.quick-action-btn {
+  background: white;
+  border: none;
+  padding: 1.75rem 1.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.quick-action-btn.breathing {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.quick-action-btn.journal {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+.quick-action-btn.book {
+  background: linear-gradient(135deg, #22c1c3 0%, #4f46e5 100%);
+  color: white;
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.action-icon {
+  font-size: 3rem;
+}
+
+.action-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.section-title {
+  text-align: center;
+  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+.mood-log-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.note-section {
+  margin: 2rem 0;
+}
+
+.note-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.note-section textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  resize: vertical;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.note-section textarea:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.note-section textarea:disabled {
+  background: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.submit-mood-btn {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.submit-mood-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.submit-mood-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.weekly-section {
+  margin-top: 2rem;
+}
+
+.weekly-section h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+/* Mood Reference Card */
+.reference-card {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f7f9ff 100%);
+  border: 1px solid #dce3ff;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 12px 24px rgba(76, 95, 185, 0.12);
+}
+
+.reference-header h3 {
+  margin: 0;
+  color: #1f2a44;
+}
+
+.reference-header p {
+  margin: 0.4rem 0 1rem;
+  color: #5f6b88;
+}
+
+.reference-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+}
+
+.reference-metric {
+  background: #ffffff;
+  border: 1px solid #e1e7ff;
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+
+.metric-label {
+  display: block;
+  color: #6a7696;
+  font-size: 0.86rem;
+  margin-bottom: 0.35rem;
+}
+
+.metric-value {
+  color: #2a3757;
+  font-size: 1.1rem;
+}
+
+.metric-value.trend.improving {
+  color: #1e8e4d;
+}
+
+.metric-value.trend.declining {
+  color: #c2410c;
+}
+
+.metric-value.trend.neutral {
+  color: #374151;
+}
+
+/* Mood Advice Wrapper */
+.mood-advice-wrapper {
+  margin: 2rem 0;
+}
+
+/* Journal Wrapper */
+.journal-wrapper {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.back-to-home-btn {
+  background: white;
+  border: 2px solid #e5e7eb;
+  padding: 0.875rem 1.5rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.back-to-home-btn:hover {
+  background: #f9fafb;
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateX(-5px);
+}
+
+.back-to-home-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 1.05rem;
+  }
+
+  .quick-actions {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .quick-action-btn {
+    padding: 1.5rem;
+  }
+
+  .action-icon {
+    font-size: 2.5rem;
+  }
+
+  .action-text {
+    font-size: 1.1rem;
+  }
+
+  .mood-log-section {
+    padding: 1.5rem;
+  }
+
+  .reference-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .back-to-home-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
