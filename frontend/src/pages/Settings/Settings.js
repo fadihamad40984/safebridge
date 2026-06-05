@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
 import Navbar from '../../components/Navbar/Navbar';
+import { API_BASE_URL } from '../../services/api';
 import './Settings.css';
 
 const Settings = () => {
@@ -51,7 +52,7 @@ const Settings = () => {
   const fetchLinkedChildren = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/auth/linked-children', {
+      const response = await fetch(`${API_BASE_URL}/auth/linked-children`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -72,7 +73,7 @@ const Settings = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/auth/profile', {
+      const response = await fetch(`${API_BASE_URL}/auth/profile`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -108,7 +109,7 @@ const Settings = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/auth/change-password', {
+      const response = await fetch(`${API_BASE_URL}/auth/change-password`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -145,7 +146,7 @@ const Settings = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:5000/api/auth/link-child', {
+      const response = await fetch(`${API_BASE_URL}/auth/link-child`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
