@@ -32,7 +32,7 @@ const BreathingExercise = ({ onClose }) => {
         clearTimeout(timerRef.current);
       }
     };
-  }, [count, isActive, phase]);
+  }, [count, isActive, phase, nextPhase]);
 
   const nextPhase = () => {
     if (phase === 'inhale') {

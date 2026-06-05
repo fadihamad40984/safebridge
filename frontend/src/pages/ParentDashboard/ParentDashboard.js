@@ -23,7 +23,7 @@ const ParentDashboard = () => {
     if (selectedChildId) {
       loadData();
     }
-  }, [selectedChildId, view]);
+  }, [selectedChildId, view, loadData]);
 
   const loadChildren = async () => {
     try {

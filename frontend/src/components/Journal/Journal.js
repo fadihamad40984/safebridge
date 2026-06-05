@@ -9,7 +9,6 @@ import {
 import './Journal.css';
 
 const Journal = () => {
-  const { user } = useAuth();
   const { addToast } = useToast();
   const [entries, setEntries] = useState([]);
   const [currentEntry, setCurrentEntry] = useState('');
@@ -29,7 +28,7 @@ const Journal = () => {
 
   useEffect(() => {
     loadEntries();
-  }, []);
+  }, [loadEntries]);
 
   const loadEntries = async () => {
     try {
