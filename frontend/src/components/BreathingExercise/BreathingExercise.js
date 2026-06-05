@@ -1,5 +1,11 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './BreathingExercise.css';
+
+const BREATHING_PHASES = {
+  inhale: { duration: 4, text: 'استنشق ببطء', icon: '🌬️', color: '#60a5fa' },
+  hold: { duration: 4, text: 'احبس النفس', icon: '⏸️', color: '#a78bfa' },
+  exhale: { duration: 4, text: 'أخرج الهواء', icon: '💨', color: '#34d399' },
+};
 
 const BreathingExercise = ({ onClose }) => {
   const [phase, setPhase] = useState('ready'); // ready, inhale, hold, exhale, complete
@@ -10,20 +16,14 @@ const BreathingExercise = ({ onClose }) => {
 
   const totalCycles = 5;
 
-  const phases = useMemo(() => ({
-    inhale: { duration: 4, text: 'استنشق ببطء', icon: '🌬️', color: '#60a5fa' },
-    hold: { duration: 4, text: 'احبس النفس', icon: '⏸️', color: '#a78bfa' },
-    exhale: { duration: 4, text: 'أخرج الهواء', icon: '💨', color: '#34d399' },
-  }), []);
-
   useEffect(() => {
     const nextPhase = () => {
       if (phase === 'inhale') {
         setPhase('hold');
-        setCount(phases.hold.duration);
+        setCount(BREATHING_PHASES.hold.duration);
       } else if (phase === 'hold') {
         setPhase('exhale');
-        setCount(phases.exhale.duration);
+        setCount(BREATHING_PHASES.exhale.duration);
       } else if (phase === 'exhale') {
         const newCycles = cycles + 1;
         if (newCycles >= totalCycles) {
@@ -32,7 +32,7 @@ const BreathingExercise = ({ onClose }) => {
         } else {
           setCycles(newCycles);
           setPhase('inhale');
-          setCount(phases.inhale.duration);
+          setCount(BREATHING_PHASES.inhale.duration);
         }
       }
     };
@@ -57,7 +57,7 @@ const BreathingExercise = ({ onClose }) => {
   const startExercise = () => {
     setIsActive(true);
     setPhase('inhale');
-    setCount(phases.inhale.duration);
+    setCount(BREATHING_PHASES.inhale.duration);
     setCycles(0);
   };
 
@@ -70,10 +70,10 @@ const BreathingExercise = ({ onClose }) => {
 
   const getCircleSize = () => {
     if (phase === 'inhale') {
-      const progress = (phases.inhale.duration - count) / phases.inhale.duration;
+      const progress = (BREATHING_PHASES.inhale.duration - count) / BREATHING_PHASES.inhale.duration;
       return 100 + progress * 100; // من 100 إلى 200
     } else if (phase === 'exhale') {
-      const progress = count / phases.exhale.duration;
+      const progress = count / BREATHING_PHASES.exhale.duration;
       return 100 + progress * 100; // من 200 إلى 100
     } else if (phase === 'hold') {
       return 200; // ثابت
@@ -138,7 +138,7 @@ const BreathingExercise = ({ onClose }) => {
                 style={{
                   width: `${getCircleSize()}px`,
                   height: `${getCircleSize()}px`,
-                  backgroundColor: phases[phase]?.color || '#60a5fa',
+                  backgroundColor: BREATHING_PHASES[phase]?.color || '#60a5fa',
                 }}
               >
                 <div className="breathing-count">{count}</div>
@@ -146,8 +146,8 @@ const BreathingExercise = ({ onClose }) => {
             </div>
 
             <div className="breathing-instruction">
-              <div className="breathing-phase-icon">{phases[phase]?.icon}</div>
-              <h3>{phases[phase]?.text}</h3>
+              <div className="breathing-phase-icon">{BREATHING_PHASES[phase]?.icon}</div>
+              <h3>{BREATHING_PHASES[phase]?.text}</h3>
             </div>
 
             <button className="breathing-stop-btn" onClick={stopExercise}>
