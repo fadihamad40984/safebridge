@@ -17,6 +17,26 @@ const BreathingExercise = ({ onClose }) => {
   };
 
   useEffect(() => {
+    const nextPhase = () => {
+      if (phase === 'inhale') {
+        setPhase('hold');
+        setCount(phases.hold.duration);
+      } else if (phase === 'hold') {
+        setPhase('exhale');
+        setCount(phases.exhale.duration);
+      } else if (phase === 'exhale') {
+        const newCycles = cycles + 1;
+        if (newCycles >= totalCycles) {
+          setPhase('complete');
+          setIsActive(false);
+        } else {
+          setCycles(newCycles);
+          setPhase('inhale');
+          setCount(phases.inhale.duration);
+        }
+      }
+    };
+
     if (isActive && phase !== 'ready' && phase !== 'complete') {
       if (count > 0) {
         timerRef.current = setTimeout(() => {
@@ -32,27 +52,7 @@ const BreathingExercise = ({ onClose }) => {
         clearTimeout(timerRef.current);
       }
     };
-  }, [count, isActive, phase, nextPhase]);
-
-  const nextPhase = () => {
-    if (phase === 'inhale') {
-      setPhase('hold');
-      setCount(phases.hold.duration);
-    } else if (phase === 'hold') {
-      setPhase('exhale');
-      setCount(phases.exhale.duration);
-    } else if (phase === 'exhale') {
-      const newCycles = cycles + 1;
-      if (newCycles >= totalCycles) {
-        setPhase('complete');
-        setIsActive(false);
-      } else {
-        setCycles(newCycles);
-        setPhase('inhale');
-        setCount(phases.inhale.duration);
-      }
-    }
-  };
+  }, [count, isActive, phase, cycles, totalCycles, phases]);
 
   const startExercise = () => {
     setIsActive(true);

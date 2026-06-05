@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import MoodChart from '../../components/MoodChart/MoodChart';
 import Alert from '../../components/Alert/Alert';
@@ -15,17 +15,7 @@ const ParentDashboard = () => {
   const [linkedChildren, setLinkedChildren] = useState([]);
   const [selectedChildId, setSelectedChildId] = useState(null);
 
-  useEffect(() => {
-    loadChildren();
-  }, []);
-
-  useEffect(() => {
-    if (selectedChildId) {
-      loadData();
-    }
-  }, [selectedChildId, view, loadData]);
-
-  const loadChildren = async () => {
+  const loadChildren = useCallback(async () => {
     try {
       const response = await getLinkedChildren();
       if (response.success && response.children.length > 0) {
@@ -39,9 +29,9 @@ const ParentDashboard = () => {
       setError('حدث خطأ أثناء تحميل بيانات الأطفال');
       setLoading(false);
     }
-  };
+  }, []);
 
-  const loadData = async () => {
+  const loadData = useCallback(async () => {
     if (!selectedChildId) return;
     
     try {
@@ -58,7 +48,17 @@ const ParentDashboard = () => {
       setError(err.response?.data?.message || 'حدث خطأ أثناء تحميل البيانات');
       setLoading(false);
     }
-  };
+  }, [selectedChildId]);
+
+  useEffect(() => {
+    loadChildren();
+  }, [loadChildren]);
+
+  useEffect(() => {
+    if (selectedChildId) {
+      loadData();
+    }
+  }, [selectedChildId, view, loadData]);
 
   if (loading) {
     return (

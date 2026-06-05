@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useToast } from '../../context/ToastContext';
 import {
   createJournalEntry,
@@ -26,11 +25,7 @@ const Journal = () => {
     { value: 'excited', label: 'متحمس', emoji: '🤩', color: '#fb923c' },
   ];
 
-  useEffect(() => {
-    loadEntries();
-  }, [loadEntries]);
-
-  const loadEntries = async () => {
+  const loadEntries = useCallback(async () => {
     try {
       setLoading(true);
       const response = await getJournalEntries();
@@ -43,7 +38,11 @@ const Journal = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [addToast]);
+
+  useEffect(() => {
+    loadEntries();
+  }, [loadEntries]);
 
   const saveEntry = async () => {
     if (!currentEntry.trim()) {
