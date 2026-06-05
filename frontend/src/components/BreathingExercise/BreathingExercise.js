@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import './BreathingExercise.css';
 
 const BreathingExercise = ({ onClose }) => {
@@ -10,11 +10,11 @@ const BreathingExercise = ({ onClose }) => {
 
   const totalCycles = 5;
 
-  const phases = {
+  const phases = useMemo(() => ({
     inhale: { duration: 4, text: 'استنشق ببطء', icon: '🌬️', color: '#60a5fa' },
     hold: { duration: 4, text: 'احبس النفس', icon: '⏸️', color: '#a78bfa' },
     exhale: { duration: 4, text: 'أخرج الهواء', icon: '💨', color: '#34d399' },
-  };
+  }), []);
 
   useEffect(() => {
     const nextPhase = () => {
@@ -52,7 +52,7 @@ const BreathingExercise = ({ onClose }) => {
         clearTimeout(timerRef.current);
       }
     };
-  }, [count, isActive, phase, cycles, totalCycles, phases]);
+  }, [count, isActive, phase, cycles, totalCycles]);
 
   const startExercise = () => {
     setIsActive(true);
